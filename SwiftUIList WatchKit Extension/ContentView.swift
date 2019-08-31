@@ -8,9 +8,27 @@
 
 import SwiftUI
 
+struct AnimalModel: Identifiable {
+    var id = UUID()
+    var Name: String
+}
+
 struct ContentView: View {
+    
+    @State var animals: [AnimalModel] = [AnimalModel(Name: "Dog"),
+                                         AnimalModel(Name: "Cat"),
+                                         AnimalModel(Name: "Bird"),
+                                         AnimalModel(Name: "Fish"),
+                                         AnimalModel(Name: "Monkey")]
+    
+    
     var body: some View {
-        Text("Hello World")
+        List {
+            ForEach(animals) { animal in
+                Text("\(animal.Name)")
+            }.onMove{ self.animals.move(fromOffsets: $0, toOffset: $1)}
+                .onDelete{ self.animals.remove(atOffsets: $0) }
+        }
     }
 }
 
