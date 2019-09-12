@@ -1,7 +1,7 @@
 # SwiftUIList
-SwiftUI Lists on WatchOS  
+SwiftUI Lists on WatchOS, utalizing the onMove and onDelete functionality. 
 
-onMove and onDelete
+
 
 Tutorial on YouTube: 
 
